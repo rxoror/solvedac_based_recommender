@@ -1,5 +1,7 @@
 # 유사 집단과 서비스 사용자의 Cosine Sinilarity 를 계산
 
+### 유사 벡터 방향을 띄기에 이 코드는 삭제 예정
+
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 
