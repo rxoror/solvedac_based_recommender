@@ -37,6 +37,9 @@ streamlit run main.py
 |------|------|--------|
 | 태호윤 | 팀장 | [@rxoror](https://github.com/rxoror) |
 | 김준한 | 팀원 | [@junhanking](https://github.com/junhanking) |
+| 손하영 | 팀원 | [@](https://github.com/) |
+| 최윤혁 | 팀원 | [@](https://github.com/) |
+
 
 ---
 
