@@ -2,7 +2,6 @@
 
 import streamlit as st
 import psutil
-
 from utils import usersDataPreproc as udp
 from utils import requestApi as api
 
