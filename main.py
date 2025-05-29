@@ -1,7 +1,6 @@
-## MAIN PAGE
+## PAGE : MAIN
 
 import streamlit as st
-from utils import usersDataPreproc as udp
 import time
 
 st.set_page_config(layout="wide", initial_sidebar_state="collapsed") #넓은 레이아웃, 사이드바 자동숨김
