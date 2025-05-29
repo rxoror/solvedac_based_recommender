@@ -1,4 +1,4 @@
-# 📚 solved.ac 기반 백준 문제 추천 시스템
+# solved.ac 기반 백준 문제 추천 시스템
 
 ![Streamlit](https://img.shields.io/badge/streamlit-%23FF4B4B.svg?style=flat&logo=streamlit&logoColor=white)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)
