@@ -1,6 +1,8 @@
 ## PAGE : 유사 유저 분석
 
 import streamlit as st
+import psutil
+
 from utils import usersDataPreproc as udp
 from utils import requestApi as api
 
@@ -16,7 +18,9 @@ container_1 = st.container()
 container_2 = st.container()
 col_1, col_2 = st.columns(2)
 
-#with container_1:
+with container_1:
+    mem = psutil.virtual_memory()
+    st.write(f"메모리 사용량: {mem.percent}%")
 
 with container_2:
     if user_id:
