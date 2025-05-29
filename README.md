@@ -33,6 +33,6 @@ streamlit run main.py
 
 ## 📌 참고 자료
 
-- solved.ac 비공식 API 문서 (https://solvedac.github.io/unofficial-documentation/)
-- Baekjoon Online Judge (https://www.acmicpc.net/)
-- Streamlit 공식 사이트 api-reference (https://docs.streamlit.io/develop/api-reference#layouts-and-containers)
+- [solved.ac 비공식 API 문서](https://solvedac.github.io/unofficial-documentation/)
+- [Baekjoon Online Judge](https://www.acmicpc.net/)
+- [Streamlit 공식 사이트 api-reference](https://docs.streamlit.io/develop/api-reference#layouts-and-containers)
