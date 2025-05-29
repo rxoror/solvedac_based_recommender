@@ -11,11 +11,11 @@ Streamlit을 이용해 간단한 UI로 추천 결과를 확인할 수 있습니�
 
 ## 🔗 앱 링크
 
-👉 [앱 실행하기](https://boj-recommender.streamlit.app/)  
-
 ### Streamlit 앱 실행
 
-터미널 또는 명령 프롬프트에서 아래 명령어를 입력하여 웹 앱을 실행하세요:
+👉 [앱 실행하기](https://boj-recommender.streamlit.app/)  
+
+로컬 환경에서는 아래 명령어를 입력하여 웹 앱을 실행하세요:
 
 streamlit run main.py
 
