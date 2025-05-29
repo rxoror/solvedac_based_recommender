@@ -1,4 +1,4 @@
-## 유사 유저 분석 PAGE
+## PAGE : 유사 유저 분석
 
 import streamlit as st
 from utils import usersDataPreproc as udp

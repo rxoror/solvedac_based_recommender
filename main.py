@@ -1,4 +1,4 @@
-## MAIN PAGE
+## PAGE : MAIN
 
 import streamlit as st
 import time
