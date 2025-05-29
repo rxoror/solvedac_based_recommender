@@ -5,7 +5,7 @@ import requests
 
 # ----------전역변수영역-----------
 
-step_size = 100  # 단계 군집 별 유저 수 설정
+step_size = 10  # 단계 군집 별 유저 수 설정
 
 # ------------------------------
 
@@ -14,7 +14,7 @@ step_size = 100  # 단계 군집 별 유저 수 설정
 def get_filtered_ALL(): 
     df = pd.read_csv("data/solvedac_users.csv")
 
-    ## solved.ac에서 일정 수준 이상의 활동을 한 유저만 분석 대상으로 포함
+    ## solved.ac에서 일정 수준 이상의 활동을 한 유저만 분석 대상으로 포함 (이상치 제거)
     df = df[(df['solvedCount'] > 0) & (df['solvedCount'] < 10000)] # 0 < solvedCount < 10,000
     df = df[df['rating'] > 30] # 30 < rating
     df = df.sort_values(by='rating', ascending=True).reset_index(drop=True) # rating 오름차순 정렬
