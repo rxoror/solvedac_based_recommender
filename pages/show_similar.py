@@ -18,7 +18,9 @@ container_1 = st.container()
 container_2 = st.container()
 col_1, col_2, col_3, col_4   = st.columns(4)
 
-with container_1:
+#with container_1:
+
+with container_2:
     if user_id:
         with col_1:
             st.write("아래는 비슷한 rating 수치의 집단 10명 입니다.")
@@ -31,22 +33,9 @@ with container_1:
             #new_df = pd.concat([new_df, user_info_df], ignore_index=True)
             
             st.dataframe(udp.normalize_df(new_df))
-
-with container_2:
-    if user_id:
         with col_3:
             st.write("사용자의 기존 정보")
             st.dataframe(udp.get_user_info(user_id))
-            st.dataframe(udp.get_user_info("reperdof"))
-
-        with col_4:
-            st.write("코사인 유사도 실행")
-            cos_df = cosSim.get_cosine_similarities(new_df, user_id)
-            st.dataframe(cos_df)
-
-
-
-        
 
 
 if st.button("메인 페이지로 돌아가기"):
