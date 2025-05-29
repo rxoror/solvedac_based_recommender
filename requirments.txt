@@ -1,4 +1,4 @@
 streamlit==1.44.1
 requests==2.32.3
 pandas==2.2.3
-psutil==7.0.0
+psutil
