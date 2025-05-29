@@ -31,6 +31,15 @@ streamlit run main.py
 
 ---
 
+## 👥 팀원 소개
+
+| 이름 | 역할 | GitHub |
+|------|------|--------|
+| 태호윤 | 팀장 | [@rxoror](https://github.com/rxoror) |
+| 김준한 | 팀원 | [@junhanking](https://github.com/junhanking) |
+
+---
+
 ## 📌 참고 자료
 
 - [solved.ac 비공식 API 문서](https://solvedac.github.io/unofficial-documentation/)
