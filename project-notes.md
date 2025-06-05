@@ -15,11 +15,16 @@
 - README 생성
 - "streamlit 커뮤니티 클라우드" 통해 앱 배포 완료
 
+### [2025.06.05.목]
+- Dice’s Coefficient 기반 유사 사용자 계산 (branch : develop)
+
+
 ---
 
 ## 🌿 브랜치 관리
 
-- main 단독 사용
+- main : streamlit cloud 에 연동됨
+- develop : 기능 추가 개발 분기
 
 ---
 
