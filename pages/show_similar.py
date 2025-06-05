@@ -28,12 +28,17 @@ with container_2:
             st.dataframe(udp.get_similar_users(user_rating))
             
         with col_2:
-            st.write("정규화 된 데이터 (class, solvedCount, maxStreak)")
-            new_df = udp.get_similar_users(user_rating)
+            st.write("diceCoefficient 기반 유사도 계산")
+            solvedCount = api.get_user_solvedcount(user_id)
+            df = udp.get_similar_users_problem(user_rating, user_id, solvedCount)
+            st.dataframe(df)
+
+            #st.write("정규화 된 데이터 (class, solvedCount, maxStreak)")
+            #new_df = udp.get_similar_users(user_rating)
             #user_info_df = udp.get_user_info(user_id)
             #new_df = pd.concat([new_df, user_info_df], ignore_index=True)
             
-            st.dataframe(udp.normalize_df(new_df))        
+            #st.dataframe(udp.normalize_df(new_df))        
     
 
 if st.button("메인 페이지로 돌아가기"):
