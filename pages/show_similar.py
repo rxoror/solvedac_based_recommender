@@ -6,6 +6,7 @@ from utils import requestApi as api
 
 st.set_page_config(layout="wide", initial_sidebar_state="collapsed") #넓은 레이아웃, 사이드바 자동숨김
 
+# 페이지 간 변수 전달 "session_state" 사용
 user_id = st.session_state.get("user_id", None) # 입력받은 값 받아오기
 user_rating = api.get_user_rating(user_id)
 
@@ -40,4 +41,10 @@ if st.button("메인 페이지로 돌아가기"):
     st.switch_page("main.py")
     user_id = 0
 
-st.button("문제 추천 받기")
+if st.button("문제 추천 받기"):
+    # 이 줄에 문제 번호 확정코드를 넣으면 됩니다.
+    # 예시 : 
+    # recomm_num = ___(user_id)
+    # st.session_state["problem_number"] = recomm_num # 페이지 간 변수 전달 (전역변수와 유사)
+    st.session_state["problem_number"] = 1000 # 이 줄의 코드는 테스트 코드입니다.
+    st.switch_page("pages/show_problem.py")
