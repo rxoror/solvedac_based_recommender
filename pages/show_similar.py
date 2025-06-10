@@ -46,5 +46,20 @@ if st.button("문제 추천 받기"):
     # 예시 : 
     # recomm_num = ___(user_id)
     # st.session_state["problem_number"] = recomm_num # 페이지 간 변수 전달 (전역변수와 유사)
-    st.session_state["problem_number"] = 1000 # 이 줄의 코드는 테스트 코드입니다.
+    # st.session_state["problem_number"] = 1000 # 이 줄의 코드는 테스트 코드입니다.
+    
+    st.session_state["performance"] = 12
+    #퍼포먼스 변경 공식을 위함
+    st.session_state["performance_internal"] = [12] * 5
+    st.session_state["tag_performance"] = [1, 2, 3, 4, 5, 6, 7, 8]
+    # 태그 퍼포먼스 변경 공식을 위함
+    st.session_state["tag_performance_internal"] = [[i+1] * 5 for i in range(8)]
+
+    # 테스트용 코드
+    st.session_state["user_id"] = "your0501"
+    st.session_state["problem_number"] = 1000
+    st.session_state["current_tag"] = "math"
+    st.session_state["problem_title"] = "A+B"
+    st.session_state["problem_level"] = 1
+    
     st.switch_page("pages/show_problem.py")
