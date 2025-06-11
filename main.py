@@ -18,7 +18,8 @@ with col_L:       # 사용자 ID 입력부
                         st.session_state["user_id"] = user_input # 페이지 간 변수 전달 "session_state" 사용
                         st.switch_page("pages/show_similar.py")
                 else:
-                        st.write("⚠️ 사용자 ID 를 입력하세요.")
+                        st.badge("사용자 ID 를 입력하세요.", icon=":material/account_circle:", color="red")
+
 
 with col_R:
         multi = '''
