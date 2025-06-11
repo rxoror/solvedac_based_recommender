@@ -5,7 +5,7 @@ import json
 import requests
 
 TAG8 = ["math", "implementation", "greedy", "string", "data_structures", "graphs", "dp", "geometry"]
-INTERNAL_COUNT = 5
+INTERNAL_COUNT = 5 # 최근 문제 n개 성과 기반으로 퍼포먼스 계산
 
 def get_problem(user, performance, tag_performance):
     # 퍼포먼스 +- 2
@@ -28,6 +28,7 @@ def get_problem(user, performance, tag_performance):
     # 골라진 태그랑 문제 번호 문제 타이틀
     return (tag, item["problemId"], item["titleKo"], item["level"])
 
+# 난이도 성과 업데이트
 def update_performance(rating, solved, performance_internal):
     # 못 푼 경우 퍼포먼스 공식에 사용되는 값은 0
     real_rating = rating if solved else 0
