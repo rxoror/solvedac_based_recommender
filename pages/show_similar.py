@@ -10,7 +10,7 @@ st.set_page_config(layout="wide", initial_sidebar_state="collapsed") #넓은 레
 user_id = st.session_state.get("user_id", None) # 입력받은 값 받아오기
 user_rating = api.get_user_rating(user_id)
 
-st.header("사용자 분석 PAGE")
+st.title("사용자 분석 PAGE")
 st.subheader(f"'{user_id}'의 현재 rating : {user_rating}")
 
 container_1 = st.container()
