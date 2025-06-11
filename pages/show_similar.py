@@ -17,31 +17,18 @@ container_1 = st.container()
 container_2 = st.container()
 col_1, col_2 = st.columns(2)
 
-#with container_1:
-
-with container_2:
+with container_1:
     if user_id:
-        st.write("사용자의 기존 정보")
-        st.dataframe(api.get_user_info(user_id))
+        #st.write("사용자의 기존 정보")
+        #st.dataframe(api.get_user_info(user_id))
         
-        with col_1:
-            st.write("아래는 비슷한 rating 수치의 집단 10명 입니다.")
-            st.dataframe(udp.get_similar_users(user_rating))
-            
-        with col_2:
-            st.write("정규화 된 데이터 (class, solvedCount, maxStreak)")
-            new_df = udp.get_similar_users(user_rating)
-            #user_info_df = udp.get_user_info(user_id)
-            #new_df = pd.concat([new_df, user_info_df], ignore_index=True)
-            
-            st.dataframe(udp.normalize_df(new_df))        
+        st.write("비슷한 rating 수치의 사용자 10명 입니다.")
+        st.write("아래 사용자들이 푼 문제를 분석하여 추천 해드릴게요!")
+        st.dataframe(udp.get_similar_users(user_rating))
+                  
     
 
-if st.button("메인 페이지로 돌아가기"):
-    st.switch_page("main.py")
-    user_id = 0
-
-if st.button("문제 추천 받기"):
+if st.button("랜덤 카테고리 문제 추천 받기", type = "primary", icon=":material/check_circle:", use_container_width=True):
     # 이 줄에 문제 번호 확정코드를 넣으면 됩니다.
     # 예시 : 
     # recomm_num = ___(user_id)
@@ -63,3 +50,26 @@ if st.button("문제 추천 받기"):
     st.session_state["problem_level"] = 1
     
     st.switch_page("pages/show_problem.py")
+
+
+
+
+
+# 태그 선택 기능
+options = ["Math", "tag2", "tag3", "tag4", "tag5", "tag6", "tag7"]
+selection = st.pills("문제 카테고리를 직접 선택할 수도 있어요", options, selection_mode="single")
+
+if selection:
+    st.session_state["current_tag"] = selection
+    st.markdown(f"Your selected options: {st.session_state["current_tag"]}.")
+
+
+
+
+
+
+st.divider()
+
+if st.button("메인으로 돌아가기", type = "tertiary", icon=":material/home:", use_container_width=True):
+    st.switch_page("main.py")
+    user_id = 0
