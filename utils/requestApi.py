@@ -35,13 +35,22 @@ def get_user_rating(handle):
         "x-solvedac-language": "ko",
         "Accept": "application/json"
     }
+
     response = requests.get(url, headers=headers, params=querystring)
-    data = response.json()
-    data: dict = response.json()
 
-    rating = data.get("rating")
+    if response.status_code != 200:
+        print("[HTTP Error]", response.status_code)
+        print("Response text:", response.text)
+        return None
 
-    return rating # 해당 유저의 레이팅 수치를 반환함
+    try:
+        data = response.json()
+    except requests.exceptions.JSONDecodeError as e:
+        print("[JSON Decode Error]", e)
+        print("Response text:", response.text)
+        return None
+
+    return data.get("rating")
 
 # 문제의 번호를 받아서, 문제 제목을 반환
 def get_problem_title(problem_num):
