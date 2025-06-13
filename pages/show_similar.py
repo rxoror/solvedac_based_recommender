@@ -28,7 +28,7 @@ with container_1:
                   
     
 st.session_state["is_random_tag"] = True ## 미선택 시 랜덤 (기본 값)
-print(f"Your selected options: {st.session_state["current_tag"]}.")
+#print(f"Your selected options: {st.session_state["current_tag"]}.")
 
 
 # 태그 선택 기능 (미선택 시 랜덤)
@@ -42,7 +42,7 @@ if selection: ## Tag 선택 시 session_state 에 저장
     st.session_state["current_tag"] = selection
     st.badge(f"{st.session_state["current_tag"]}", icon=":material/tag:", color="primary")
     #st.markdown(f"Your selected options: {st.session_state["current_tag"]}.")
-    print(f"Your selected options (update): {st.session_state["current_tag"]}.")
+    #print(f"Your selected options (update): {st.session_state["current_tag"]}.")
 else:
     st.session_state["is_random_tag"] = True
     st.badge(f"Random", icon=":material/ifl:", color="violet")
