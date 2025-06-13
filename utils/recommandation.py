@@ -3,16 +3,23 @@
 import random
 import json
 import requests
+import streamlit as st
 
 TAG8 = ["math", "implementation", "greedy", "string", "data_structures", "graphs", "dp", "geometry"]
 INTERNAL_COUNT = 5 # 최근 문제 n개 성과 기반으로 퍼포먼스 계산
+
 
 def get_problem(user, performance, tag_performance):
     # 퍼포먼스 +- 2
     p1 = max(int(performance), 1)
     p2 = min(int(performance)+2, 30)
-    # 태그는 편의상 랜덤으로 고름
-    tag = random.choice(TAG8)
+
+    ## 태그 선택 확인
+    if st.session_state["is_random_tag"] == True:
+        tag = random.choice(TAG8)
+    else:
+        tag = st.session_state["current_tag"]
+
     url = f"https://solved.ac/api/v3/search/problem?query=*{p1}..{p2}+-s%40{user}+%23{tag}+solvable%3Atrue&sort=random&page=1"
     print(url)
     headers = {

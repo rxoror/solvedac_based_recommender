@@ -5,16 +5,25 @@ from utils import recommandation as rc
 import random
 
 st.set_page_config(layout="wide", initial_sidebar_state="collapsed") #넓은 레이아웃, 사이드바 자동숨김
-
 user_id = st.session_state.get("user_id", None) # 유저 ID 불러오기
 
+
+
+
+### >> 기능
+
 def recommandation():   # 추천 문제를 불러와 session_state에 저장
-    p = rc.get_problem(user_id, st.session_state["performance"], st.session_state["tag_performance"])
-    tag, pid, pname, level = p
+    
+    # p의 요소 : tag, item["problemId"], item["titleKo"], item["level"]
+    p = rc.get_problem(user_id, st.session_state["performance"], st.session_state["tag_performance"]) # 문제 정보 저장
+    
+    # p의 요소를 재분배 >> session_state (전역 사용 가능)
+    tag, pid, pname, level = p  
     st.session_state["current_tag"] = tag
     st.session_state["problem_number"] = pid
     st.session_state["problem_title"] = pname
     st.session_state["problem_level"] = level
+    
     print(p)
 
 def update_performance(solved): # 문제 풀이 결과에 따라 퍼포먼스 업데이트
@@ -30,6 +39,11 @@ def update_performance(solved): # 문제 풀이 결과에 따라 퍼포먼스 �
 
 recommandation() # 추천 문제를 불러와 session_state에 저장
 
+### << 기능
+
+
+
+
 ### Front code area >>
 st.title("추천 된 문제 보기")
 
@@ -39,6 +53,7 @@ container_3 = st.container()
 
 col_L, col_R = st.columns(2)
 
+col_1, col_2 = st.columns(2)
 
 with col_L:
     st.subheader(f"{user_id} 의 활동 현황")
@@ -49,7 +64,7 @@ with col_L:
     st.write("현재 난이도")
     st.subheader(f"`{st.session_state['performance']}`")
 
-    st.write("태그별 퍼포먼스")
+    st.write("사용자의 카테고리별 성과")
     st.plotly_chart(makeFigure.make_figure(st.session_state["tag_performance"]))
 
 with col_R:
@@ -61,7 +76,10 @@ with col_R:
     #|{st.session_state["problem_number"]}|{st.session_state["problem_title"]}|[문제 페이지로 이동](https://www.acmicpc.net/problem/{st.session_state["problem_number"]})|
     #'''
     
-    st.subheader("활동기반 추천 문제")
+    st.subheader("추천 문제")
+    if st.session_state["is_random_tag"] == True:
+        st.badge(f"Random 적용됨", icon=":material/ifl:", color="violet")
+    st.badge(f"{st.session_state["current_tag"]}", icon=":material/tag:", color="primary")
 
     st.link_button(f"{st.session_state["problem_number"]}번 / 문제 제목 : {st.session_state["problem_title"]} (클릭 시 이동)", f"https://www.acmicpc.net/problem/{st.session_state["problem_number"]}", type = "tertiary", use_container_width=False)
 
@@ -78,6 +96,9 @@ with col_R:
         #st.switch_page("./pages/show_problem.py")
 
     st.divider() # 구분선
+
+    if st.button("카테고리 다시 선택", type = "tertiary", icon=":material/arrow_back_ios:", use_container_width=True):
+        st.switch_page("pages/show_similar.py")
 
     if st.button("메인으로 돌아가기", type = "tertiary", icon=":material/home:", use_container_width=True):
         st.switch_page("main.py")
