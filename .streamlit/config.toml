@@ -1,0 +1,8 @@
+[theme]
+base="light"  # 또는 "dark"
+
+primaryColor="#0080FF"      # 주요 색상 (버튼 등)
+backgroundColor="#FFFFFF"   # 배경색
+secondaryBackgroundColor="#F0F2F6"  # 사이드바 배경
+textColor="#000000"         # 글자색
+font="sans serif"
